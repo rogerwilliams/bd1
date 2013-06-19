@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <title>UXC BD 1</title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+        <script src="js/libs/require.js" data-main="js/app"></script>
+    </head>
+    <body>
+        <!-- Home -->
+         <div data-role="page" id="menu">
+            <div data-theme="a" data-role="header">
+                <h3>
+                    Menu
+                </h3>
+            </div>
+            <div  data-role="content">
+                <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-theme='c'>
+                        <a href='#clientsPage' data-transition='slide' >
+                            Clients
+                        </a> 
+                    </li>
+                    <li data-theme='c'>
+                        <a href='#consultantsPage' data-transition='slide' >
+                            Consultants
+                        </a> 
+                    </li>
+                    <li data-theme='c'>
+                        <a href='#adminPage' data-transition='slide' >
+                            Admin
+                        </a> 
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="page" id="home">
+            <div data-theme="a" data-role="header">
+                <h3>
+                    Login
+                </h3>
+            </div>
+            <div  data-role="content">
+                <div data-role="fieldcontain">
+                    <label for="userid">Userid:</label>
+                    <input type="text" name="userid" id="userid" value="" />
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" value="" />
+                </div>
+                <a  id="loginButton", data-role="button" href="#peoplePage">
+                    Login
+                </a>
+            </div>
+        </div>
+       
+        <div data-role="page" id="clientsPage">
+            <div data-theme="a" data-role="header">
+                <a  data-role="button" data-icon="arrow-l" data-iconpos="left" data-rel="back">Back</a>
+                <h3>
+                    Clients
+                </h3>
+                <a id="addClientButton" class="ui-btn-right" href="#editClient" data-role="button"
+                    data-icon="plus" data-iconpos="notext" data-rel="dialog" data-transition="pop"
+                    data-theme="c" data-inline="true" >
+                    Plus
+                </a>
+            </div>
+            <div id="clients" data-role="content">
+                 <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-theme='c'>
+                        <a href='#clientPage' data-transition='slide' >
+                            Client 1
+                        </a> 
+                    </li>
+                    <li data-theme='c'>
+                        <a href='#clientPage' data-transition='slide' >
+                            Client 2
+                        </a> 
+                    </li>
+                    <li data-theme='c'>
+                        <a href='#clientPage' data-transition='slide' >
+                            Client 3
+                        </a> 
+                    </li>
+                 </ul>
+            </div>
+            <script id="personItems" type="text/template">
+                <li data-theme='c'>
+                    <a href='#clientPage' data-transition='slide' >
+                        <%= person.firstName %> 
+                    </a> 
+                </li>
+            </script>
+        </div>
+        <div data-role="page" id="clientPage">
+            <div data-theme="a" data-role="header">
+                <a  data-role="button" data-icon="arrow-l" data-iconpos="left" data-rel="back">Back</a>
+                <h3>
+                    Client name
+                </h3>
+            </div>
+            <div id="clients" data-role="content">
+                <div data-role="collapsible">
+                    <h2>Notes</h2>
+                    <p>Some notes about the client.</p>
+                </div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <h4>Submissions</h4>
+                    </div>
+                    <div class="ui-block-b">
+                        <a id="addSubmissionButton" class="ui-btn-right" href="#addSubmission" data-role="button"
+                             data-rel="dialog" data-transition="pop" data-theme="c"  >
+                            New
+                        </a>
+                    </div>
+                </div><!-- /grid-a -->
+                <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-role="list-divider" role="heading">
+                        Submissions
+                    </li>
+                    <li data-theme="c">
+                        <a href="#viewSubmission" data-transition="slide">
+                            Submission 1
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#viewSubmission" data-transition="slide">
+                            Submission 2
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <script id="personItems" type="text/template">
+                <li data-theme='c'>
+                    <a href='#items' data-transition='slide' >
+                        <%= person.firstName %> 
+                    </a> 
+                </li>
+            </script>
+        </div>        
+        <div data-role="page" id="addSubmission">
+            <div data-theme="a" data-role="header">
+                <h3>New submission</h3>
+                <a class="saveButton" data-role="button" data-theme="b" data-rel="back">Generate</a>
+            </div>
+            <div data-role="content">
+                <fieldset data-role="controlgroup">
+                   <legend>Technology:</legend>
+            	   <input type="checkbox" name="checkbox-2" id="checkbox-2" class="custom" />
+            	   <label for="checkbox-2">Technology 1</label>
+                   <input type="checkbox" name="checkbox-3" id="checkbox-3" class="custom" />
+            	   <label for="checkbox-3">Technology 2</label>
+                   <input type="checkbox" name="checkbox-4" id="checkbox-4" class="custom" />
+            	   <label for="checkbox-4">Technology 3</label>
+                </fieldset>
+                <fieldset data-role="controlgroup">
+                   <legend>Business area:</legend>
+                   <input type="checkbox" name="checkbox-2" id="checkbox-2" class="custom" />
+            	   <label for="checkbox-2">Business area 1</label>
+                   <input type="checkbox" name="checkbox-3" id="checkbox-3" class="custom" />
+            	   <label for="checkbox-3">Business area 2</label>
+                   <input type="checkbox" name="checkbox-4" id="checkbox-4" class="custom" />
+            	   <label for="checkbox-4">Business area 3</label>
+                </fieldset>
+                <fieldset data-role="controlgroup">
+                <label for="search-basic">Search Input:</label>
+                    <input type="search" name="search" id="search-basic" value="" />
+                   <legend>Client:</legend>
+                   <input type="checkbox" name="checkbox-2" id="checkbox-2" class="custom" />
+            	   <label for="checkbox-2">Client 1</label>
+                   <input type="checkbox" name="checkbox-3" id="checkbox-3" class="custom" />
+            	   <label for="checkbox-3">Client 2</label>
+                   <input type="checkbox" name="checkbox-4" id="checkbox-4" class="custom" />
+            	   <label for="checkbox-4">Client 3</label>
+                </fieldset>
+            </div>
+        </div>
+        <div data-role="page" id="viewSubmission">
+            <div data-theme="a" data-role="header">
+                <a  data-role="button" data-icon="arrow-l" data-iconpos="left" data-rel="back">Back</a>
+                <h3>Submission 1</h3>
+            </div>
+            <div data-role="content">
+                <a class="saveButton" data-role="button" data-theme="b" data-rel="back">Show PDF</a>
+                <a class="saveButton" data-role="button" data-theme="b" data-rel="back">Email PDF</a>
+            </div>
+        </div>
+        <div data-role="page" id="editClient">
+            <div data-theme="a" data-role="header">
+                <h3>Client</h3>
+                <a class="saveButton" data-role="button" data-theme="b" data-rel="back">Save</a>
+            </div>
+            <div data-role="content">
+                <fieldset>
+                    <label for="text-basic" class="ui-input-text ">First name</label>
+                    <input id="epPersonFirstName" type="text" name="text-basic" value="">
+                    <label for="text-basic" class="ui-input-text ">Last name</label>
+                    <input id="epPersonLastName" type="text" name="text-basic" value="">
+                </fieldset>
+            </div>
+        </div>
+        <div data-role="page" id="consultantsPage">
+            <div data-theme="a" data-role="header">
+                <a  data-role="button" data-icon="arrow-l" data-iconpos="left" data-rel="back">Back</a>
+                <h3>
+                    Consultants
+                </h3>
+                <a id="addConsultantButton" class="ui-btn-right" href="#editConsultant" data-role="button"
+                    data-icon="plus" data-iconpos="notext" data-rel="dialog" data-transition="pop"
+                    data-theme="c" data-inline="true" >
+                    Plus
+                </a>
+            </div>
+            <div id="consultants" data-role="content">
+                 <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-theme='c'>
+                        <a href='#consultantPage' data-transition='slide' >
+                            Consultant 1
+                        </a> 
+                    </li>
+                    <li data-theme='c'>
+                        <a href='#consultantPage' data-transition='slide' >
+                            Consultant 2
+                        </a> 
+                    </li>
+                    <li data-theme='c'>
+                        <a href='#consultantPage' data-transition='slide' >
+                            Consultant 3
+                        </a> 
+                    </li>
+                 </ul>
+            </div>
+            <script id="personItems" type="text/template">
+                <li data-theme='c'>
+                    <a href='#items' data-transition='slide' >
+                        <%= person.firstName %> 
+                    </a> 
+                </li>
+            </script>
+        </div>
+         <div data-role="page" id="consultantPage">
+            <div data-theme="a" data-role="header">
+                <a  data-role="button" data-icon="arrow-l" data-iconpos="left" data-rel="back">Back</a>
+                <h3>
+                    Consultant name
+                </h3>
+            </div>
+            <div id="clients" data-role="content">
+                <div data-role="collapsible">
+                    <h2>Notes</h2>
+                    <p>Some notes about the consultant.</p>
+                </div>
+                <div data-role="collapsible">
+                    <h2>Skills</h2>
+                    <p>A list of skills.</p>
+                </div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <h2>Engagements</h2>
+                    </div>
+                    <div class="ui-block-b">
+                        <a id="addEngagementButton" class="ui-btn-right" href="#addEngagement" data-role="button"
+                             data-rel="dialog" data-transition="pop" data-theme="c"  >
+                            New
+                        </a>
+                    </div>
+                </div><!-- /grid-a -->
+                <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-role="list-divider" role="heading">
+                        Engagements
+                    </li>
+                    <li data-theme="c">
+                        <a href="#viewEngagement" data-transition="slide">
+                            Engagement 1
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#viewEngagement" data-transition="slide">
+                            Engagement 2
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <script id="personItems" type="text/template">
+                <li data-theme='c'>
+                    <a href='#items' data-transition='slide' >
+                        <%= person.firstName %> 
+                    </a> 
+                </li>
+            </script>
+        </div>        
+        <div data-role="page" id="addEngagement">
+            <div data-theme="a" data-role="header">
+                <h3>New engagement</h3>
+                <a class="saveButton" data-role="button" data-theme="b" data-rel="back">Save</a>
+            </div>
+            <div data-role="content">
+                 <fieldset data-role="controlgroup">
+                <label for="search-basic">Search Input:</label>
+                    <input type="search" name="search" id="search-basic" value="" />
+                   <legend>Client:</legend>
+                </fieldset>
+                <div data-role="fieldcontain">
+                    <label for="name">From:</label>
+                    <input type="date" name="from" id="from" value=""  />
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="name">To:</label>
+                    <input type="date" name="to" id="to" value=""  />
+                </div>
+                <div data-role="collapsible">
+                    <h2>Notes</h2>
+                    <textarea name="textarea" id="textarea-a">Some notes about the engagement. </textarea>
+                </div>
+                <fieldset data-role="controlgroup">
+                   <legend>Technology:</legend>
+                   <input type="checkbox" name="checkbox-2" id="checkbox-2" class="custom" />
+            	   <label for="checkbox-2">Technology 1</label>
+                   <input type="checkbox" name="checkbox-3" id="checkbox-3" class="custom" />
+            	   <label for="checkbox-3">Technology 2</label>
+                   <input type="checkbox" name="checkbox-4" id="checkbox-4" class="custom" />
+            	   <label for="checkbox-4">Technology 3</label>
+                </fieldset>
+                <fieldset data-role="controlgroup">
+                   <legend>Business area:</legend>
+                   <input type="checkbox" name="checkbox-2" id="checkbox-2" class="custom" />
+            	   <label for="checkbox-2">Business area 1</label>
+                   <input type="checkbox" name="checkbox-3" id="checkbox-3" class="custom" />
+            	   <label for="checkbox-3">Business area 2</label>
+                   <input type="checkbox" name="checkbox-4" id="checkbox-4" class="custom" />
+            	   <label for="checkbox-4">Business area 3</label>
+                </fieldset>
+                
+            </div>
+        </div>
+        <div data-role="page" id="editConsultant">
+            <div data-theme="a" data-role="header">
+                <h3>Consultant</h3>
+                <a class="saveButton" data-role="button" data-theme="b" data-rel="back">Save</a>
+            </div>
+            <div data-role="content">
+                <fieldset>
+                    <label for="text-basic" class="ui-input-text ">First name</label>
+                    <input id="epPersonFirstName" type="text" name="text-basic" value="">
+                    <label for="text-basic" class="ui-input-text ">Last name</label>
+                    <input id="epPersonLastName" type="text" name="text-basic" value="">
+                </fieldset>
+            </div>
+        </div>
+        <div data-role="page" id="adminPage">
+            <div data-theme="a" data-role="header">
+                <a  data-role="button" data-icon="arrow-l" data-iconpos="left" data-rel="back">Back</a>
+                <h3>
+                    Admin
+                </h3>
+            </div>
+            <div id="admin" data-role="content">
+                 <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-theme='c'>
+                        <a href='#items' data-transition='slide' >
+                            Templates
+                        </a> 
+                    </li>
+                 </ul>
+            </div>
+        </div>
+    </body>
+</html>
