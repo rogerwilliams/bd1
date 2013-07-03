@@ -1,4 +1,9 @@
-build :
+dirs := _attachments filters views 
+files := $(foreach dir,$(dirs),$(wildcard $(dir)/*))
+
+
+build : $(files) README.md _id language .couchapprc couchapp.json
+	rm -rf build
 	mkdir build
 	cp -r _attachments	build
 	cp -r filters	build
@@ -11,4 +16,4 @@ build :
 	cd build; erica push
 
 clean :
-	rm -r build
+	rm -rf build
